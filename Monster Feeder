@@ -1,1 +1,357 @@
-https://editor.p5js.org/Geben25/sketches/fw3sBk5-_
+let Seaman= new Audio('Oceanman.mp3')
+let button4
+let button3
+let a = 125
+let monsterspics=[]
+let mie=0
+darkone=120
+let word='YoMama so old'
+let button
+var screen
+var soundscreen=0
+let oblivion
+skarl=0
+let chocolate=new Audio('Dark death.mp3')
+fat1=0
+slat1=0
+Mat1=0
+let ButtonCending
+let ButtonMending
+let ButtonSwending
+let ButttonRonaldo
+let  ButtonGronaldo
+let ButtonDronaldo
+let meat;
+let m;
+
+let veggie;
+let v; 
+
+let sweet;
+let s; 
+Cbt1=0
+Cbt2=0
+Cbt3=0
+let rectangle;
+let img;
+let img2;
+let img3;
+let b;
+
+let monst; 
+let monsterTypes = ["meat","veggie","sweet"]
+
+let score = 0; 
+  
+function preload(){
+  meat = loadImage("Unknown-4-removebg-preview.png")
+  veggie = loadImage("Unknown-13-removebg-preview.png")
+  sweet = loadImage("image-removebg-preview.png")
+  lolly = loadImage("image-removebg-preview-1.png")
+  b = loadImage("bg.jpeg")
+ img = loadImage('g.png');
+  img2 = loadImage ('r.png')
+  img3 = loadImage ('p.png')
+  STV2 = loadImage ('V2.png')
+  STV3 = loadImage ('V3.png')
+  STC2 = loadImage ('C2.png')
+  STC3 = loadImage('C3.png')
+  STM2 = loadImage ('M2.png')
+  STM3 = loadImage ('M3.png')
+  Skarletking = loadImage ('skarl.jpeg')
+  Dark = loadImage('Darksouls.jpg')
+
+}
+ 
+function setup() {
+  createCanvas(720, 400);
+  background(0);
+  stroke(255);
+  cnv=createCanvas(720,400)
+  
+   Seaman.play()
+
+   soundFormats('mp3')
+   oblivion =loadSound('Oblivion.mp3')
+
+  button = createButton('BEGIN');
+  button2 = createButton('sound')
+  ButtonCending = createButton('Candy failure ending')
+  ButtonMending = createButton('Meat failure ending')
+  ButtonSwending = createButton('Veggie failure ending')
+  ButtonRonaldo= createButton('Ending 2')
+  ButtonGronaldo = createButton('Ending 2')
+  ButtonDronaldo = createButton('Ending 2')
+  ButtonRonaldo.mouseClicked(Dance0)
+  ButtonGronaldo.mouseClicked(Dance1)
+   ButtonDronaldo.mouseClicked(Dance2)
+  button.mouseClicked(buttonpressed)
+  button2.mouseClicked(don)
+  button2.doubleClicked(don2)
+
+  button3= createButton('sound')
+ 
+ button3.position(900,800)
+ button3.mouseClicked(don3)
+    ButtonCending.position(100,9000)
+  ButtonMending.position(1000,900)
+  ButtonSwending.position(700,800)
+  
+    ButtonCending.mouseClicked(Maned0)
+  ButtonMending.mouseClicked(Maned2)
+  ButtonSwending.mouseClicked(Maned1)
+  
+   ButtonRonaldo.position(900,900)
+  ButtonGronaldo.position(900,900)
+  ButtonDronaldo.position(900,900)
+  m = new Food(10,1,"meat")
+  v = new Food(0,130,"veggie")
+  s = new Food(0, 275, "sweet")
+  
+  monst = new Monster(300,100,monsterTypes[int(random(0,3))])
+ 
+  
+}
+
+function mousePressed() {
+  m.pressed(mouseX, mouseY);
+  v.pressed(mouseX,mouseY);
+  s.pressed(mouseX,mouseY);
+}
+
+function mouseReleased() {
+  m.notPressed();
+  v.notPressed(); 
+  s.notPressed(); 
+}
+
+
+
+
+function draw() {
+background(255, 0, 255);
+ image(Skarletking,0,skarl,800,600)
+    fill(100)
+  textSize(75)
+   text(word,50, 10, 30, 100)
+if (screen==0){
+  line(a, 0, a, height);
+  if (!Seaman.isPlaying){Seaman.pause()}
+  fill(255,0,255);
+  ellipse(61, 66, 106, 106);
+  ellipse(61, 196, 106, 106)
+  ellipse(61, 336, 106, 106)
+
+  button2.position(800,800)
+  button3.position(60,400)
+  
+skarl=900
+ 
+  
+  b.resize(600,440)
+  image(b, 126, 0,900,400)
+  if (score<-2 && fat1>0){ ButtonMending.position(114,400) ;ButtonRonaldo.position(255,400)
+                        }
+ if (score<-2 && slat1>0){ ButtonSwending.position(114,400);              ButtonGronaldo.position(255,400)}
+if (score<-2 && Mat1>0){ ButtonCending.position(114,400);                   ButtonDronaldo.position(255,400)}
+  
+ 
+   monst.drawMonster(); 
+  
+   m.drawFood(mouseX, mouseY);
+
+   v.drawFood(mouseX,mouseY);
+
+   s.drawFood(mouseX,mouseY);
+  
+  //lose screen
+  if (score < -2){
+    image(Dark,darkone,0,600,400)
+    noLoop()
+    chocolate.play()
+ 
+    
+  }
+  
+  
+  //win screen
+  if (score >3){
+    fill("turquoise")
+    rect(0,0,width,height)
+    fill("magenta")
+    textSize(33)
+    text("You won!", 300,200)
+  }
+ 
+}
+}
+
+function buttonpressed(){screen=0}
+
+function soundGone(){if(!Seaman.isPlaying)
+
+{soundscreen=soundscreen+1; print('o')}}
+
+function don(){if (!Seaman.isPlaying){Seaman.pause();button2.html('ocean')} else{Seaman.play();}}
+
+function don3(){if(!oblivion.isPlaying()){oblivion.play();button3.html("Pause")}
+ else{oblivion.pause()
+     button3.html("play")}}
+function Dance0(){window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley')}
+function Dance1(){window.open('https://www.youtube.com/watch?v=DdZigncxXW8&ab_channel=reado')}
+function Dance2(){window.open('https://www.youtube.com/watch?v=N9w1lCZfaWI&ab_channel=merrygoat')}
+
+function don2(){if (!Seaman.isPausing){Seaman.play()}
+               button2.html('sound')}
+function Maned0(){window.open('https://docs.google.com/document/d/1yiRuNpW-cR7uKgkFTcqxy69nWjq0DHUyk2inTvdFj7c/edit')}
+function Maned1(){window.open('https://docs.google.com/document/d/1fabx9fuOqd-Iun7RgshNQm3BwdMgc9djIC6KIuRx2VA/edit')}
+function Maned2(){window.open('https://docs.google.com/document/d/16z1ZlKAsZ5H1U4I0NuPqNFg5leIyUsG2jTv9MREItNw/edit')}
+
+
+class Food {
+  
+  constructor(x,y,type){
+    
+    this.x = x;
+    this.y = y;
+    this.type = type;
+    this.CAndy =this.CAndy
+    
+    this.offsetX = 0;
+    this.offsetY = 0;
+    this.dragging = false;
+    this.rollover = false;
+    
+    this.eaten = false; 
+    this.time = false
+  }
+  
+  drawFood(px,py){
+    
+     if (this.dragging) {
+      this.x = px + this.offsetX;
+      this.y = py + this.offsetY;
+    }
+    
+    if(this.type == "meat"){
+       image(meat, this.x, this.y, 125, 125);
+      
+    }
+    if(this.type == "veggie"){
+      image(veggie,this.x, this.y, 125, 125)
+    }
+    if(this.type == "sweet"){
+      image(sweet,this.x, this.y, 125, 125)
+    }
+    
+  }
+
+  
+    pressed(px, py){
+    if (px > this.x && px < this.x + 125 && py > this.y && py < this.y + 125) {
+   //   print("clicked on food");
+      this.dragging = true;
+      this.eaten = true
+      this.offsetX = this.x - px;
+      this.offsetY = this.y - py;
+    }
+  }
+    
+  notPressed(px, py){
+    //print("mouse was released");
+      this.dragging = false;     
+
+
+      if(this.eaten == true && this.y>100 && this.y<400 && this.x>300 && this.x<400 ){
+        
+        print("fed monster")
+        if(this.type == monst.type){
+            score = score +1;
+            print(score)
+          //play sound: YUM! 
+          }
+        
+        if(this.type != monst.type){
+            score = score -1;
+          print(score)
+          //play sound : Yuck!
+          }
+        if(this.type == "veggie"){
+          this.x=10
+          this.y=130
+          
+        }
+        if(this.type == "meat"){
+         this.x=10
+          this.y=1
+         
+        }
+            if(this.type == "sweet"){
+         this.x=0
+          this.y=270
+         
+        }
+      }
+    
+  }
+
+
+}
+
+class Monster {
+  constructor(x,y,type,size){
+    this.x = x;
+    this.y = y;
+    this.type = type;
+    this.size = 1;
+  }
+  
+  drawMonster(){
+    if(this.type == "meat"){
+      if (score <1){fat1=1
+        image(img2, this.x, this.y-100, 600, 600);
+      }
+      if (score ==1){
+          image(STM2,this.x,this.y,200,200)
+      }
+      if (score >=2){
+        image(STM3,this.x,this.y,180,180)
+      
+      }
+   
+    }
+    if(this.type == "veggie"){ slat1=1
+     
+      
+       if (score <1){
+        image(img, this.x, this.y, 190, 190)      }
+      if (score ==1){
+        image(STV2,this.x,this.y,190,190)      }
+      if (score >=2){
+        image(STV3,325,110,180,180)
+
+      
+      }
+      
+     
+  
+    }
+    if(this.type == "sweet"){ Mat1=1
+      
+       if (score <1){
+     image(img3, this.x, this.y, 200, 200)
+       }
+         if (score ==1){
+        image(STC2,this.x,this.y,185,185)      
+        }
+      if (score >=2){
+        image(STC3,this.x,this.y,185,185)
+        }
+   
+
+    }
+    
+  }
+}
+  
+  
